@@ -9,37 +9,20 @@
 import SwiftUI
 
 struct ContentView: View {
-//    normal private variable
-//    private var aVariable = false
-
-//    state variable
-    @State private var variableYaState = ""
-    @State private var batonState = ""
+    @State private var username: String = ""
+    @State private var password: String = ""
     var body: some View {
-//
-        VStack(spacing: 20){
-            Text("ToDo App")
-                .font(.title)
-                .fontWeight(.bold)
-                
-            HStack(alignment: .center, spacing: 20){
-                VStack(alignment: .leading, spacing: 40){
-                    HStack{
-                        TextField("Enter ToDo Item",text: $variableYaState)
-                    }
-                    HStack{
-                        Text("I will: \(variableYaState)")
-                        Button(action: {
-                            self.batonState = "Added"
-                        }){
-                            Text("Add")
-                        }.disabled(batonState == "Added")
-                    }
-                }
+        VStack{
+            TextField("Username",text: $username)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+            TextField("Password",text:$password)
+               .textFieldStyle(RoundedBorderTextFieldStyle())
+            Button(action: {
+                print("\(self.username) and \(self.password)")
+            }){
+                Text("Login")
             }
-
         }
-    .padding()
     }
 }
 
