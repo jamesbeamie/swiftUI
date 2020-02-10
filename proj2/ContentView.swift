@@ -13,15 +13,26 @@ struct ContentView: View {
     @State private var password: String = ""
     var body: some View {
         VStack{
-            TextField("Username",text: $username)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-            TextField("Password",text:$password)
-               .textFieldStyle(RoundedBorderTextFieldStyle())
+            
+            Image("user")
+                .resizable()
+                .clipShape(Circle())
+                .frame(width: 100, height: 100)
+                .padding()
+            VStack(alignment: .center){
+                TextField("Username",text: $username)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .padding()
+                TextField("Password",text:$password)
+                   .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .padding()
             Button(action: {
                 print("\(self.username) and \(self.password)")
             }){
                 Text("Login")
             }
+            }.padding()
+            
         }
     }
 }
