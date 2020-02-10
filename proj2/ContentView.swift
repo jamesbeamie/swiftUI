@@ -12,27 +12,35 @@ struct ContentView: View {
     @State private var username: String = ""
     @State private var password: String = ""
     var body: some View {
-        VStack{
+        VStack(alignment: .leading){
             Spacer()
-            Image("user")
+            HStack{
+                Spacer()
+                Image("user")
                 .resizable()
                 .clipShape(Circle())
                 .frame(width: 100, height: 100)
-                .padding()
+                Spacer()
+                }
             VStack(alignment: .center){
                 TextField("Username",text: $username)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding()
-                TextField("Password",text:$password)
+                SecureField("Password",text:$password)
                    .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding()
+                HStack{
+                    Spacer()
                     Button(action: {
-                        print("\(self.username) and \(self.password)")
+                    print("\(self.username) and \(self.password)")
                     }){
                         Text("Login")
                             .foregroundColor(Color.white)
-                        
                         }
+                    Spacer()
+                }.padding()
+                    .background(Color.gray)
+                    .padding(.horizontal, 80)
             }.padding()
             Spacer()
         }
