@@ -15,10 +15,17 @@ struct ContentView: View {
 //    state variable
     @State private var variableYaState = ""
     var body: some View {
-        VStack{
-            TextField("Task",text: $variableYaState)
-                .font(.body)
-            Text("The input is: \(variableYaState)")
+//
+        VStack(spacing: 20){
+            Text("ToDo App")
+                .font(.title)
+                .fontWeight(.bold)
+                
+            HStack(alignment: .center, spacing: 20){
+                TextField("Task",text: $variableYaState)
+                    .font(.body)
+                Text("ToDo: \(variableYaState)")
+            }
 
         }
     .padding()
