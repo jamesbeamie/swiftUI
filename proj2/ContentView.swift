@@ -9,14 +9,22 @@
 import SwiftUI
 
 struct ContentView: View {
+//    normal private variable
+//    private var aVariable = false
+
+//    state variable
+    @State private var variableYaState = ""
     var body: some View {
-        HStack{
-            Text("Hello, World!")
-                .fontWeight(.heavy)
-            .foregroundColor(Color.gray)
+        VStack{
+            TextField("Task",text: $variableYaState)
+                .font(.body)
+            Text("The input is: \(variableYaState)")
+
         }
+    .padding()
     }
 }
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
