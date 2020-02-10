@@ -14,6 +14,7 @@ struct ContentView: View {
 
 //    state variable
     @State private var variableYaState = ""
+    @State private var batonState = ""
     var body: some View {
 //
         VStack(spacing: 20){
@@ -22,9 +23,19 @@ struct ContentView: View {
                 .fontWeight(.bold)
                 
             HStack(alignment: .center, spacing: 20){
-                TextField("Task",text: $variableYaState)
-                    .font(.body)
-                Text("ToDo: \(variableYaState)")
+                VStack(alignment: .leading, spacing: 40){
+                    HStack{
+                        TextField("Enter ToDo Item",text: $variableYaState)
+                    }
+                    HStack{
+                        Text("I will: \(variableYaState)")
+                        Button(action: {
+                            self.batonState = "Added"
+                        }){
+                            Text("Add")
+                        }.disabled(batonState == "Added")
+                    }
+                }
             }
 
         }
