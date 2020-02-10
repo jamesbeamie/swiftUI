@@ -9,10 +9,18 @@
 import SwiftUI
 
 struct ContentView: View {
+    //normal variable private
+    //private var variableYaState = false
+
+    //state var
+    @State private var variableYaState = false
     var body: some View {
-        Text("Hello, World!")
-            .fontWeight(.bold)
-            .foregroundColor(Color.gray)
+        Text("e-kraal Task!") 
+            .font(.headline)
+            .fontWeight(.regular)
+            .foregroundColor(Color.blue)
+        
+        
     }
 }
 
