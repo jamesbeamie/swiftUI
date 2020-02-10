@@ -8,8 +8,17 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct InputTextField: View{
     @State private var username: String = ""
+    let label: String
+    var body: some View{
+        TextField("Username",text: $username)
+        .textFieldStyle(RoundedBorderTextFieldStyle())
+        .padding()
+    }
+}
+
+struct ContentView: View {
     @State private var password: String = ""
     var body: some View {
         VStack(alignment: .leading){
@@ -23,16 +32,15 @@ struct ContentView: View {
                 Spacer()
                 }
             VStack(alignment: .center){
-                TextField("Username",text: $username)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding()
-                SecureField("Password",text:$password)
+                InputTextField(label: "username")
+                InputTextField(label: "password")
+                /*SecureField("Password",text:$password)
                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding()
+                    .padding()*/
                 HStack{
                     Spacer()
                     Button(action: {
-                    print("\(self.username) and \(self.password)")
+//                    print("\(self.username) and \(self.password)")
                     }){
                         Text("Login")
                             .foregroundColor(Color.white)
