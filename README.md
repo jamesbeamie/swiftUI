@@ -5,4 +5,4 @@
 ## Authentication
 - Allows users to login
 ## Todo
-- Retrieves Todo items from the server
+- Retrieves Todo items
