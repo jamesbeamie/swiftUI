@@ -48,6 +48,8 @@ struct ContentView: View {
     @State private var username: String = ""
     @State private var password: String = ""
     
+    
+    
     @State private var isLoggedIn: Int? = nil
     
     var manager = HttpAuth()

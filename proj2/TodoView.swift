@@ -9,8 +9,17 @@
 import SwiftUI
 
 struct TodoView: View {
+    @State var networkingManager = NetworkingManager()
     var body: some View {
-        Text("Todo")
+        VStack{
+            Text("Items To Do")
+                .font(.title)
+                .fontWeight(.bold)
+                
+            List(networkingManager.todoList.results, id: \.self) { item in
+                Text(item.title)
+            }
+        }
     }
 }
 
